@@ -13,6 +13,8 @@ import android.widget.Toast
 import app.superesenou.ru.example_neobis_translate.R
 import app.superesenou.ru.example_neobis_translate.main.models.ContactAlbums
 import app.superesenou.ru.example_neobis_translate.main.ui.comment.CommentActivity
+import app.superesenou.ru.example_neobis_translate.main.ui.main.BaseActivity
+import app.superesenou.ru.example_neobis_translate.main.ui.main.BaseFragment
 import app.superesenou.ru.example_neobis_translate.main.ui.photos.PhotosActivity
 import kotlinx.android.synthetic.main.fragment_album.*
 import kotlinx.android.synthetic.main.fragment_post.*
@@ -24,10 +26,7 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 
-class AlbumFragment : Fragment(),AlbumContract.View,AlbumAdapter.Listener {
-
-
-
+class AlbumFragment : BaseFragment(),AlbumContract.View,AlbumAdapter.Listener {
 
     lateinit var  presenter: AlbumPresenter
     lateinit var  adapter:AlbumAdapter
@@ -35,7 +34,7 @@ class AlbumFragment : Fragment(),AlbumContract.View,AlbumAdapter.Listener {
 
     override fun setOnItemClick(position: Int) {
 
-        Toast.makeText(activity,"Item :"+position, Toast.LENGTH_LONG).show()
+       // Toast.makeText(activity,"Item :"+position, Toast.LENGTH_LONG).show()
         val intent = Intent(activity, PhotosActivity::class.java)
         startActivity(intent)
     }

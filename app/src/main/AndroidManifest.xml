@@ -24,7 +24,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".main.ui.comment.CommentActivity" />
-        <activity android:name=".main.ui.photos.PhotosActivity"></activity>
+        <activity android:name=".main.ui.photos.PhotosActivity" />
+        <activity android:name=".main.ui.photos.PhotosInerActivity"></activity>
     </application>
 
 </manifest>

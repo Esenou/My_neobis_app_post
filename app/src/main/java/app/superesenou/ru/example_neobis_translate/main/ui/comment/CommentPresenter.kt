@@ -10,21 +10,33 @@ class CommentPresenter(val view:CommentContract.View):CommentContract.Presenter 
 
 
     override fun getSectionComments() {
+
+        if(isViewAttached()){
+            view.showProgress()
        StartApplication.service.getDateComments().enqueue(
+
                object :Callback<List<ContactComment>>{
                    override fun onFailure(call: Call<List<ContactComment>>?, t: Throwable?) {
-                      view.onFailure()
+                       if(isViewAttached()){
+                           view.hideProgress()
+                       }
+                       t?.printStackTrace()
                    }
 
                    override fun onResponse(call: Call<List<ContactComment>>?, response: Response<List<ContactComment>>?) {
                        if (response!!.isSuccessful&& response != null) {
                            view.onSuccessGetComments(response.body()!!)
                        }
-                       else{
+                       else
                            view.onFailure()
-                       }
+                       view!!.hideProgress()
                    }
                }
+
        )
+        }
+
     }
+
+    fun isViewAttached():Boolean = view!= null
 }

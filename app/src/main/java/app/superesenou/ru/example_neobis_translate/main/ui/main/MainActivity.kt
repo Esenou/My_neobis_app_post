@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity(){
 
 
     private val mOnNavigationItemSelectedListener=BottomNavigationView.OnNavigationItemSelectedListener {item ->
-        when(item.itemId) {
+       return@OnNavigationItemSelectedListener when(item.itemId) {
              R.id.postId-> {
                  println("right pressed")
                  replaceFragment(PostFragment())
@@ -32,8 +32,10 @@ class MainActivity : AppCompatActivity(){
                 replaceFragment(WeatherFragment())
                 return@OnNavigationItemSelectedListener true
             }
+           else->false
+
         }
-        false
+
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

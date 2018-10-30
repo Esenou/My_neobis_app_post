@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.ui.weather.WeatherFragment">
+    tools:context=".main.ui.weather.WeatherFragment"
+    android:background="@drawable/bacroundweather">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -15,25 +16,52 @@
             android:id="@+id/txtWeatherName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/hello_blank_fragment"
+            android:textSize="14sp"
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/txtWeatherCountry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/hello_blank_fragment"
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/txtWeatherTz_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/hello_blank_fragment"
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/txtWeatherLocaltime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/hello_blank_fragment"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/txtWeatherLast_updated"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/hello_blank_fragment"
+            android:textStyle="bold|italic" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,58 +69,73 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="204dp"
+                android:layout_width="181dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginLeft="30dp"
                 android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/txtWeatherLast_updated"
-                    android:layout_width="match_parent"
-                    android:layout_height="44dp"
-                    android:text="@string/hello_blank_fragment" />
 
                 <TextView
                     android:id="@+id/txtWeatherTemp_c"
                     android:layout_width="match_parent"
-                    android:layout_height="44dp"
-                    android:text="@string/hello_blank_fragment" />
+                    android:layout_height="31dp"
+                    android:text="@string/hello_blank_fragment"
+                    android:textColor="#d0142ffc"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtWeatherTemp_f"
                     android:layout_width="match_parent"
-                    android:layout_height="44dp"
-                    android:text="@string/hello_blank_fragment" />
+                    android:layout_height="29dp"
+                    android:layout_marginBottom="40dp"
+                    android:text="@string/hello_blank_fragment"
+                    android:textColor="#d0142ffc"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtWeatherWind__mph"
                     android:layout_width="match_parent"
-                    android:layout_height="44dp"
-                    android:text="@string/hello_blank_fragment" />
+                    android:layout_height="34dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/hello_blank_fragment"
+                    android:textColor="@android:color/black"
+                    android:textStyle="italic" />
 
                 <TextView
                     android:id="@+id/txtWeatherWind_kph"
                     android:layout_width="match_parent"
-                    android:layout_height="44dp"
-                    android:text="@string/hello_blank_fragment" />
+                    android:layout_height="37dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/hello_blank_fragment"
+                    android:textColor="@android:color/black"
+                    android:textStyle="italic" />
 
                 <TextView
                     android:id="@+id/txtWeatherCloud"
                     android:layout_width="match_parent"
-                    android:layout_height="44dp"
-                    android:text="@string/hello_blank_fragment" />
+                    android:layout_height="32dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/hello_blank_fragment"
+                    android:textColor="@android:color/black"
+                    android:textStyle="italic" />
 
                 <TextView
                     android:id="@+id/txtWeatherVis_km"
                     android:layout_width="match_parent"
-                    android:layout_height="44dp"
-                    android:text="@string/hello_blank_fragment" />
+                    android:layout_height="37dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/hello_blank_fragment"
+                    android:textColor="@android:color/black"
+                    android:textStyle="italic" />
 
                 <TextView
                     android:id="@+id/txtWeatherVis_miles"
                     android:layout_width="match_parent"
                     android:layout_height="44dp"
-                    android:text="@string/hello_blank_fragment" />
+                    android:text="@string/hello_blank_fragment"
+                    android:textColor="@android:color/black"
+                    android:textStyle="italic" />
 
             </LinearLayout>
 
@@ -100,21 +143,28 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
                 android:orientation="vertical">
 
                 <EditText
                     android:id="@+id/inputTxt"
                     android:layout_width="144dp"
                     android:layout_height="wrap_content"
-                    android:text="input" />
+                    android:text="input"
+                    android:textSize="14sp"
+                    android:textStyle="italic" />
 
                 <Button
                     android:id="@+id/btnSearch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="102dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bacround"
                     android:onClick="onClick"
                     android:text="search"
-                    />
+                    android:textColor="@android:color/background_light"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

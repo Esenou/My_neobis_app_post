@@ -5,35 +5,70 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@android:color/darker_gray" />
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:orientation="vertical">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
 
         <TextView
-            android:id="@+id/nameComment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:id="@+id/textViewComments"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="A"
+            android:background="@drawable/shape"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/emailComment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <android.support.v7.widget.CardView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="8dp">
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="25dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nameComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="nameComment"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/emailComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="emailComment"
+                android:textStyle="bold|italic" />
+
 
             <TextView
                 android:id="@+id/bodyComment"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </android.support.v7.widget.CardView>
+                android:layout_height="wrap_content"
+                android:background="@drawable/bacroundcomment"
+                android:text="bodyComment"
+                android:textAlignment="textStart" />
+
+        </LinearLayout>
+
+
     </LinearLayout>
+
+
 
 
 

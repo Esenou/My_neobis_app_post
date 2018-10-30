@@ -6,9 +6,11 @@ import android.support.v7.widget.GridLayoutManager
 import android.widget.Toast
 import app.superesenou.ru.example_neobis_translate.R
 import app.superesenou.ru.example_neobis_translate.main.models.ContactComment
+import app.superesenou.ru.example_neobis_translate.main.ui.main.BaseActivity
 import kotlinx.android.synthetic.main.activity_comment.*
+import kotlinx.android.synthetic.main.item_sectioncomments.*
 
-class CommentActivity : AppCompatActivity(),CommentContract.View {
+class CommentActivity : BaseActivity(),CommentContract.View {
 
 
     lateinit var presenter: CommentPresenter
@@ -29,6 +31,10 @@ class CommentActivity : AppCompatActivity(),CommentContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comment)
+        var title:String = intent.getStringExtra("ese")
+        var body:String=intent.getStringExtra("esen")
+        titlePost.text=title
+        bodyPost.text=body
         init()
     }
 

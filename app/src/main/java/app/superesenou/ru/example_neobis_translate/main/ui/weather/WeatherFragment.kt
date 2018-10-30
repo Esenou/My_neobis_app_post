@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.Toast
 import app.superesenou.ru.example_neobis_translate.R
 import app.superesenou.ru.example_neobis_translate.main.models.ContactWeather
+import app.superesenou.ru.example_neobis_translate.main.ui.main.BaseFragment
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_weather.*
 
@@ -24,7 +25,7 @@ private const val ARG_PARAM2 = "param2"
  * A simple [Fragment] subclass.
  *
  */
-class WeatherFragment : Fragment(),WeatherContract.View,View.OnClickListener {
+class WeatherFragment : BaseFragment(),WeatherContract.View,View.OnClickListener {
 
     lateinit var presenter: WeatherPresenter
     var txt:String="Bishkek"
@@ -38,14 +39,14 @@ class WeatherFragment : Fragment(),WeatherContract.View,View.OnClickListener {
         txtWeatherLocaltime.text=body?.location?.localtime
         txtWeatherCountry.text=body?.location?.country
         txtWeatherTz_id.text=body?.location?.tz_id
-        txtWeatherLast_updated.text="last_updated :"+body?.current?.last_updated
-        txtWeatherTemp_c.text="temp_c :"+body?.current?.temp_c
-        txtWeatherTemp_f.text="temp_f :"+body?.current?.temp_f
-        txtWeatherWind__mph.text="wind_mph :"+body?.current?.wind_mph
-        txtWeatherWind_kph.text="wind_kph :"+body?.current?.wind_kph
-        txtWeatherCloud.text="cloud :"+body?.current?.cloud
-        txtWeatherVis_km.text="vis_km :"+body?.current?.vis_km
-        txtWeatherVis_miles.text="vis_miles :"+body?.current?.vis_miles
+        txtWeatherLast_updated.text="Last updated :"+body?.current?.last_updated
+        txtWeatherTemp_c.text="Temp c :"+body?.current?.temp_c
+        txtWeatherTemp_f.text="Temp f :"+body?.current?.temp_f
+        txtWeatherWind__mph.text="Wind mph :"+body?.current?.wind_mph
+        txtWeatherWind_kph.text="Wind kph :"+body?.current?.wind_kph
+        txtWeatherCloud.text="Cloud :"+body?.current?.cloud
+        txtWeatherVis_km.text="Vis km :"+body?.current?.vis_km
+        txtWeatherVis_miles.text="Vis miles :"+body?.current?.vis_miles
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

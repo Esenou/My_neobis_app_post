@@ -10,23 +10,33 @@ import retrofit2.Response
 class WeatherPresenter(val view:WeatherContract.View):WeatherContract.Presenter {
 
     override fun getWeatherDate(txt: String) {
-
+        if(isViewAttached()){
+            view.showProgress()
             StartApplication.servicew.getDateWeather(txt).enqueue(
 
                     object : Callback<ContactWeather> {
                         override fun onFailure(call: Call<ContactWeather>?, t: Throwable?) {
-                            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+                            if(isViewAttached()){
+                                view.hideProgress()
+                            }
+                            t?.printStackTrace()
                         }
 
                         override fun onResponse(call: Call<ContactWeather>?, response: Response<ContactWeather>?) {
-                            if (response!!.isSuccessful&&response.body()!=null){
+                            if(isViewAttached()){
+                                if (response!!.isSuccessful&&response.body()!=null){
                                 view.onSuccessGetWeatherDate(response.body()!!)
-                            } else{
-                                view.onFailure()
+                                }
+                                else
+                                    view.onFailure()
+                                view!!.hideProgress()
                             }
+
                         }
                     }
             )
-
     }
+}
+    fun isViewAttached():Boolean = view!= null
 }

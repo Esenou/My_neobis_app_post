@@ -31,6 +31,7 @@ class CommentAdapter(private var list: List<ContactComment>): RecyclerView.Adapt
             itemView.nameComment.text = list.get(position).name
             itemView.emailComment.text=list.get(position).email
             itemView.bodyComment.text=list.get(position).body
+            itemView.textViewComments.text=list.get(position).name[0].toString()
 
         }
 

@@ -8,23 +8,33 @@ import retrofit2.Response
 
 class PhotosPresenter(val view:PhotosContract.View ):PhotosContract.Presenter {
     override fun getSectionPhotos() {
+        if(isViewAttached()){
+            view.showProgress()
+
         StartApplication.service.getDatePhotos().enqueue(
+
                 object: Callback<List<ContactPhotos>>{
                     override fun onFailure(call: Call<List<ContactPhotos>>?, t: Throwable?) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                        if(isViewAttached()){
+                            view.hideProgress()
+                        }
+                        t?.printStackTrace()
                     }
 
                     override fun onResponse(call: Call<List<ContactPhotos>>?, response: Response<List<ContactPhotos>>?) {
-                        if (response!!.isSuccessful&&response != null) {
-                            view.onSuccessGetPhotos(response.body()!!)
-                        }
-                        else{
-                            view.onFailure()
+                        if(isViewAttached()) {
+                            if (response!!.isSuccessful && response != null) {
+                                view.onSuccessGetPhotos(response.body()!!)
+                            } else
+                                view.onFailure()
+                            view!!.hideProgress()
                         }
                     }
                 }
         )
-    }
+    }}
+
+    fun isViewAttached():Boolean = view!= null
 
 
 }

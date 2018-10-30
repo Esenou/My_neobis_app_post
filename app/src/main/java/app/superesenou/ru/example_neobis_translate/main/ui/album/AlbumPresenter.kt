@@ -10,22 +10,35 @@ import retrofit2.Response
 class AlbumPresenter(val view: AlbumContract.View):AlbumContract.Presenter {
 
     override fun getSectionAlbum() {
-        StartApplication.service.getDateAlbums().enqueue(
-                object: Callback<List<ContactAlbums>>{
-                    override fun onFailure(call: Call<List<ContactAlbums>>?, t: Throwable?) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                    }
-                    override fun onResponse(call: Call<List<ContactAlbums>>?, response: Response<List<ContactAlbums>>?) {
-                       if(response!!.isSuccessful && response.body()!=null){
-                           view.onSuccessGetAlbum(response.body()!!)
-                       }
-                        else{
-                           view.onFailure()
-                       }
-                    }
-                })
 
+        if(isViewAttached()) {
+            view.showProgress()
+            StartApplication.service.getDateAlbums().enqueue(
+                    object : Callback<List<ContactAlbums>> {
+                        override fun onFailure(call: Call<List<ContactAlbums>>?, t: Throwable?) {
+
+                            if(isViewAttached()){
+                                view.hideProgress()
+                            }
+                            t?.printStackTrace()
+                        }
+
+                        override fun onResponse(call: Call<List<ContactAlbums>>?, response: Response<List<ContactAlbums>>?) {
+                            if(isViewAttached()){
+                                if (response!!.isSuccessful && response.body() != null) {
+                                    view.onSuccessGetAlbum(response.body()!!)
+                                }
+                                else
+                                    view.onFailure()
+                                view!!.hideProgress()
+
+                            }
+                        }
+                    })
+        }
     }
+
+    fun isViewAttached():Boolean = view!= null
 
 
 }

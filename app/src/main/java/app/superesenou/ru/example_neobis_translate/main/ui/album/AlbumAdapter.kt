@@ -28,6 +28,7 @@ class AlbumAdapter(private var list: List<ContactAlbums>,val listener: AlbumAdap
 
         fun setDate(position: Int){
             itemView.txtTitleAlbums.text= list[position].title
+            itemView.textViewAlbums.text= list[position].title[0].toString()
             itemView.tag = position
             itemView.setOnClickListener {
                 val index= it.tag as Int
